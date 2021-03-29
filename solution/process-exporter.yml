@@ -1,0 +1,29 @@
+process_names:
+  - name: "app-1"
+    exe:
+      - /bin/java
+  - name: "app-2"
+    exe:
+      - java
+    cmdline:
+      - kafka
+  - name: "app-3"
+    exe:
+      - java
+    cmdline:
+      - zookeeper
+  - name: "app-api-1"
+    exe:
+      - java
+    cmdline:
+      - app-0.0.1-SNAPSHOT.jar
+  - name: "app-api-2"
+    exe:
+      - java
+    cmdline:
+      - app-api-0.0.1-SNAPSHOT.jar
+  - name: "app-api-3"
+    exe:
+      - java
+    cmdline:
+      - app-apu-0.0.1-SNAPSHOT.jar
