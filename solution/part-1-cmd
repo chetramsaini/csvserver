@@ -1,0 +1,82 @@
+➜  solution git:(master) ✗ docker pull infracloudio/csvserver:latest
+
+➜  solution git:(master) ✗ docker pull prom/prometheus:v2.22.0
+
+➜  solution git:(master) ✗ docker images
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+docker/getting-started   latest    3ba8f2ff0727   10 days ago    27.9MB
+infracloudio/csvserver   latest    8cb989ef80b5   2 weeks ago    237MB
+prom/prometheus          v2.22.0   7adf5a25557b   5 months ago   168MB
+
+➜  solution git:(master) ✗ cat gencsv.sh
+#!/bin/bash
+#This script generates 10 random numbers.
+#Author Chetram Saini|DevOps Consultant#
+
+RANDOM=$$
+for i in `seq 10`
+do
+        echo $((i++)), $RANDOM
+done
+➜  solution git:(master) ✗ 
+
+➜  solution git:(master) ✗ cat gencsv1.sh
+#!/bin/bash
+#This script generates 10 random numbers.
+#Author Chetram Saini|DevOps Consultant#
+
+RANDOM=$$
+for i in `seq 100000`
+do
+        echo $((i++)), $RANDOM
+done
+➜  solution git:(master) ✗   
+
+➜  solution git:(master) ✗ cat inputFile
+1, 7765
+2, 23526
+3, 8923
+4, 3594
+5, 22871
+6, 2029
+7, 13919
+8, 27641
+9, 22124
+10, 8730
+➜  solution git:(master) ✗ 
+
+➜  solution git:(master) ✗ less inputFile1
+1, 3029
+2, 23482
+3, 16086
+4, 4237
+5, 8742
+6, 2688
+7, 16808
+8, 13995
+9, 14044
+10, 26832
+11, 26230
+12, 2825
+13, 22602
+14, 13197
+15, 28635
+...
+...
+
+99991, 13382
+99992, 12746
+99993, 19889
+99994, 6080
+99995, 12856
+99996, 7917
+99997, 3370
+99998, 19957
+99999, 11546
+100000, 31528
+➜  solution git:(master) ✗ 
+
+
+
+
+
