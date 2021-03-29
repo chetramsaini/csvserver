@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  prometheus:
+    image: prom/prometheus:v2.24.0
+    container_name: prometheus
+    command:
+      - --config.file=/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus/data
+    healthcheck:
+      # curl was not available, hence using netstat
+      test: "netstat -ntpl 9090"
+      interval: 0m30s
+      timeout: 2s
+      retries: 3
+      start_period: 2s
+    networks:
+      - ontic-monitoring-network
+    restart: unless-stopped
+    user: ${PROMETHEUS_USER_ID}:${GROUP_ID}
+    ports:
+      - 9090:9090
+    volumes:
+      - ${HOST_VOLUME}/prometheus/:/prometheus
